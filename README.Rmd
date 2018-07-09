@@ -1,0 +1,50 @@
+---
+output: rmarkdown::github_document
+---
+
+# dshield
+
+Query 'SANS' 'DShield' 'API'
+
+## Description
+
+The 'DShield' project provides early warning attack data and  host/'IP' metadata to the information security community. Tools are provided to query various 'DShield' 'API' <https://isc.sans.edu/api/> endpoints.
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+- `ip_info`:	IP info
+- `port_date`:	Port information at a point-in-time
+- `port_history`:	Historical activity for a given port
+- `port_info`:	Port info
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/dshield")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(dshield)
+
+# current verison
+packageVersion("dshield")
+
+```
+
+```{r}
+str(ip_info("70.91.145.10"))
+
+str(port_info(5555))
+
+str(port_date(5555, "2018-06-23"))
+
+str(port_history(5555, "2018-06-01"))
+```
